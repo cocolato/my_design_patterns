@@ -17,11 +17,11 @@ class Context(metaclass=ABCMeta):
         if state is None:
             return False
         if self.__cur_state is None:
-            print(f"初始化为{self.get_state()}")
+            self.__cur_state = state
+            print(f"初始化为{self.get_state().get_name()}")
         else:
             print(f"由{self.__cur_state.get_name()}变为{state.get_name()}")
-        self.__cur_state = state
-        self.add_state(state)
+            self.__cur_state = state
         return True
     
     def get_state(self):
@@ -37,7 +37,7 @@ class Context(metaclass=ABCMeta):
         return self.__state_info
 
 
-class State:
+class State():
     """状态的基类"""
 
     def __init__(self, name):
