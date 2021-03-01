@@ -1,9 +1,10 @@
 import time
 from observer_temp import Observer, Observable
 
+
 class Account(Observable):
     """用户账户"""
-    
+
     def __init__(self):
         super().__init__()
         self.__latest_ip = dict()
@@ -41,7 +42,8 @@ class SmsSender(Observer):
 
     def update(self, observable, object: dict):
         print(f'[短信发送] {object["name"]} 您好！检测到您的账户可能登陆异常。最近一次登录信息: ')
-        print(f'登陆地区：{object["region"]}\n登录ip：{object["ip"]}\n登陆时间：{object["time"]}')
+        print(
+            f'登陆地区：{object["region"]}\n登录ip：{object["ip"]}\n登陆时间：{object["time"]}')
 
 
 class EmailSender(Observer):
@@ -49,7 +51,8 @@ class EmailSender(Observer):
 
     def update(self, observable, object: dict):
         print(f'[邮件发送] {object["name"]} 您好！检测到您的账户可能登陆异常。最近一次登录信息: ')
-        print(f'登陆地区：{object["region"]}\n登录ip：{object["ip"]}\n登陆时间：{object["time"]}')    
+        print(
+            f'登陆地区：{object["region"]}\n登录ip：{object["ip"]}\n登陆时间：{object["time"]}')
 
 
 if __name__ == "__main__":

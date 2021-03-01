@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
+
 class Observer(metaclass=ABCMeta):
     """观察者的基类"""
 
@@ -22,7 +23,7 @@ class Observable:
     # 移除监听者
     def remove_observer(self, observer):
         self.__observers.remove(observer)
-    
+
     # 触发监听者的通知方法
     def notify_observers(self, object=0):
         for observer in self.__observers:

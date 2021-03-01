@@ -1,5 +1,6 @@
 from abc import abstractmethod, ABCMeta
 
+
 class Context(metaclass=ABCMeta):
     """状态模式的上下文环境类"""
 
@@ -12,7 +13,7 @@ class Context(metaclass=ABCMeta):
     def add_state(self, state):
         if state not in self.__states:
             self.__states.append(state)
-    
+
     def change_state(self, state):
         if state is None:
             return False
@@ -23,7 +24,7 @@ class Context(metaclass=ABCMeta):
             print(f"由{self.__cur_state.get_name()}变为{state.get_name()}")
             self.__cur_state = state
         return True
-    
+
     def get_state(self):
         return self.__cur_state
 
@@ -42,10 +43,10 @@ class State():
 
     def __init__(self, name):
         self.__name = name
-    
+
     def get_name(self):
         return self.__name
-    
+
     def is_match(self, state_info):
         "状态的属性state_info是否在当前的状态范围内"
         return False

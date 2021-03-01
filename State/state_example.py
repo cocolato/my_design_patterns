@@ -81,6 +81,7 @@ class GaseousState(State):
     def behavior(self, context: Context):
         print(f"当前状态为气态， 温度：{context._get_state_info()}")
 
+
 if __name__ == "__main__":
     water = Water()
     water.behavior()

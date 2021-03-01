@@ -6,7 +6,7 @@ class Singleton(object):
         if not cls.__instance:
             Singleton.__instance = super().__new__(cls)
         return cls.__instance
-    
+
     def __init__(self, name):
         if not self.__isFirstInit:
             self.__name = name
@@ -14,6 +14,7 @@ class Singleton(object):
 
     def getName(self):
         return self.__name
+
 
 if __name__ == "__main__":
     tony = Singleton("Tony")
