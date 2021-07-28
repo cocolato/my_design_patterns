@@ -30,3 +30,5 @@ class Person(Clone):
 if __name__ == "__main__":
     jack = Person(name="jack", age=18)
     jack.show_myself()
+
+    
