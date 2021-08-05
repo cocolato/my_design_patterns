@@ -19,7 +19,7 @@ class Request(object):
         return self.__reason
 
 
-class Responsible(ABCMeta):
+class Responsible(metaclass=ABCMeta):
     """责任人抽象类"""
     def __init__(self, name, title):
         self.__name = name
@@ -39,13 +39,13 @@ class Responsible(ABCMeta):
         return self.__next_hander
 
     @abstractmethod
-    def _handle_request_impl(self):
+    def _handle_request_impl(self, request):
         pass
 
     def handle_request(self, request):
         """请求处理"""
         # 当前责任人处理请求
-        self._handle_request_impl()
+        self._handle_request_impl(request)
         # 如果存在下一个责任人，则将请求传递到下一个责任人
         if self.__next_hander is not None:
-            self.__next_hander.handler_request(request)
+            self.__next_hander.handle_request(request)
